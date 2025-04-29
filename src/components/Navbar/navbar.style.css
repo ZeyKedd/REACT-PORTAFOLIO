@@ -1,0 +1,46 @@
+.navbar {
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-between ;
+    align-items: center;
+    padding: 5px 5px;
+    border-bottom: 30Px solid red;
+    border-radius: 1000px;
+    mask-image: linear-gradient(
+        black 10px,
+        transparent);
+}
+
+.navbar-logo{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    mask-image: linear-gradient(
+        black 15px,
+        transparent);
+}
+
+.logo {
+    width: 50px;
+    text-decoration: none;
+}
+
+.icons{
+    margin-right: 25px;
+    mask-image: linear-gradient(
+        black 15px,
+        transparent);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100px;
+}
+
+.icons-button{
+    background-color: transparent;
+    border: none;
+    color: red;
+    font-size: 25px;
+    cursor: pointer;
+}
