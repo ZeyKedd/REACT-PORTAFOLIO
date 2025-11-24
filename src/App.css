@@ -1,3 +1,33 @@
+
 .app{
+  display: flex;
+  flex-direction: column; /* navbar arriba */
+  min-height: 100vh;
+  height: 100vh;
   background-color: black;
+  color: #fff;
+  box-sizing: border-box;
+}
+
+.main-area{
+  display: flex;
+  flex: 1;
+  gap: 16px;
+  min-height: 0;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* Main content se expande; sidebar tiene ancho fijo */
+.main-area > .main, .main-area > main {
+  flex: 1;
+}
+
+.main-area > .sidebar, .main-area > aside {
+  flex: 0 0 120px;
+}
+
+@media (max-width: 720px){
+  .main-area{ flex-direction: column }
+  .main-area > .sidebar, .main-area > aside{ flex: 0 0 auto; width: 100% }
 }
