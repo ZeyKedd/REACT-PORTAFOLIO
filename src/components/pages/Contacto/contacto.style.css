@@ -1,0 +1,46 @@
+.circle-img {
+    margin-top: 10px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 5px solid red;
+    object-fit: cover;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.text-circle-image {
+    padding-top: 4px;
+    font-family: "Arvo", serif;
+    text-align: center;
+    color: #fff;
+}
+
+.card {
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 32px;
+    background-color: #111;
+    padding: 24px 18px;
+    box-shadow: 0 4px 24px rgba(255,0,0,0.08);
+    color: #fff;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (max-width: 720px) {
+    .card {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 95vw;
+        padding: 16px 8px;
+    }
+    .circle-img {
+        width: 180px;
+        height: 180px;
+    }
+}
