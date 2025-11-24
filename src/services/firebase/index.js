@@ -20,18 +20,11 @@ export function subscribeProjects(callback) {
 
   return onValue(projectsRef, snapshot => {
     const value = snapshot.val()
-    if (!value) return callback([])
-
-    // si es objeto → mapear a array
-    if (typeof value === 'object') {
-      const list = Object.keys(value).map(key => ({
-        id: key,
-        ...value[key]
-      }))
-      return callback(list)
-    }
-
-    callback([])
+    const list = Object.keys(value).map(key => ({
+      id: key,
+      ...value[key]
+    }))
+    return callback(list)
   })
 }
 

@@ -80,7 +80,7 @@ const Portafolio = () => {
                             key={p.id || i}
                             title={p.title}
                             desc={p.desc}
-                            img={p.img || proyectoImg}
+                            img={p.img}
                             tags={p.tags}
                             demoUrl={p.demoUrl}
                             repoUrl={p.repoUrl}
