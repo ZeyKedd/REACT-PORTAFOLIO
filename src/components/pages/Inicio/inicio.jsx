@@ -15,7 +15,8 @@ const inicio = () => {
                 <div className='textInicio'>
                     <p className='parrafo'><span className='spanText'>Sebastian </span>Andres</p>
                     <p className='parrafo'><span style={{paddingLeft:"80px"}} className='spanText'>Hernandez </span> Trochez</p>
-                    <p  className='parrafo_Abajo' style={{fontFamily:"arvo"}}>DESARROLLADOR DE SOFTWARE</p>
+                    <p className='parrafo_Abajo' style={{fontFamily:"arvo"}}>DESARROLLADOR DE SOFTWARE</p>
+                    <p className='subtitulo' style={{fontFamily:"arvo"}}>Full-Stack Developer | Frontend con React · Backend con PHP / JS · Data con SQL / NoSQL</p>
                 </div>
 
             </div>

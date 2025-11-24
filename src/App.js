@@ -2,6 +2,7 @@ import './App.css';
 import Main from './components/main';
 import Navbar from './components/Navbar/navbar';
 import Sidebar from './components/SideBar/sidebar';
+import Footer from './components/Footer/footer';
 
 import { BrowserRouter } from 'react-router-dom';
 
@@ -15,6 +16,7 @@ function App() {
           <Main />
           <Sidebar />
         </div>
+        <Footer />
       </BrowserRouter>
     </div>
   );

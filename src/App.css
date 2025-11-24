@@ -16,6 +16,8 @@
   min-height: 0;
   height: 100%;
   box-sizing: border-box;
+  overflow: auto; /* permite que el contenido se desplace sin mover el footer */
+  padding-bottom: 12px;
 }
 
 /* Main content se expande; sidebar tiene ancho fijo */
