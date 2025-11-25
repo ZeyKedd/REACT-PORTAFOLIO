@@ -30,7 +30,8 @@
 .subtituo,
 .subtitulo,
 .portfolio-page p,
-.contacto p
+.contacto p,
+.rol-tittle
 {
   font-family: 'Arvo', serif;
 }

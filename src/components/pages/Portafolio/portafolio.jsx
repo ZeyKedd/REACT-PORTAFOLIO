@@ -87,6 +87,11 @@ const Portafolio = () => {
         return () => { if (typeof unsub === 'function') unsub() }
     }, [])
 
+    const categoryColors = {
+        language: '#0ea4e96e',
+        framework: '#ef444477',
+        database: '#f59f0b81'
+    };
     // Experience subscription (simple)
     useEffect(() => {
         let unsub = null
@@ -107,7 +112,7 @@ const Portafolio = () => {
         <section className="portfolio-page">
             <header className="portfolio-header">
                 <h2>Projectos</h2>
-                <p className="lead">Proyectos y tecnologías — clic en "Ver" para demo o en "Código" para repositorio</p>
+                <p className="lead">Proyectos en los que he realizado o participado</p>
             </header>
 
             <div className="projects-grid">
@@ -132,27 +137,32 @@ const Portafolio = () => {
 
             <div className="portfolio-extra">
                 <div className="skills-column">
-                    <h2>Tecnologias</h2>
+                    <header className="portfolio-header">
+                        <h2>Tecnologias</h2>
+                        <p className="lead">Lenguajes, Framework y bases de datos que manejo</p>
+                    </header>
                     {skills.length === 0 ? (
                         <div className="portfolio-empty">No hay habilidades registradas.</div>
                     ) : (
                         <div className="skills-list">
                             {skills.map(s => (
-                                <div className="skill-chip" key={s.id}>{s.name}</div>
+                                <div className="skill-chip" key={s.id} style={{ background: categoryColors[s.category] || "rgba(231, 21, 21, 0.29)" }}>{s.name}</div>
                             ))}
                         </div>
                     )}
                 </div>
 
                 <div className="xp-column">
-                    <h2>Experiencia</h2>
+                    <header className="portfolio-header">
+                        <h2>Experiencias</h2>
+                    </header>
                     {experience.length === 0 ? (
                         <div className="portfolio-empty">No hay experiencia registrada.</div>
                     ) : (
                         <div className="xp-list">
                             {experience.map(x => (
                                 <div className="xp-item" key={x.id}>
-                                    <strong>{x.role || 'Rol'}</strong>
+                                    <strong className='rol-tittle'>{x.role || 'Rol'}</strong>
                                     <div className="xp-company">{x.company || ''} — <span className="xp-dates">{x.startDate || ''} • {x.endDate || 'Present'}</span></div>
                                     {x.responsibilities && x.responsibilities.length > 0 && (
                                         <p className="xp-desc">{x.responsibilities[0]}</p>
