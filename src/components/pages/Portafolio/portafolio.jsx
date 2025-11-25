@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import './portafolio.style.css'
-import proyectoImg from '../../img/proyecto-py.jpeg'
-import { subscribeProjects, getProjectsOnce } from '../../../services/firebase'
+import {
+    subscribeProjects,
+    getProjectsOnce,
+    subscribeSkills,
+    getSkillsOnce,
+    subscribeExperience,
+    getExperienceOnce
+} from '../../../services/firebase'
 
-const ProjectCard = ({ title = 'Proyecto ejemplo', desc = 'Descripción breve del proyecto', img = proyectoImg, tags = [], demoUrl = '', repoUrl = '' }) => (
+const ProjectCard = ({ title = 'Proyecto ejemplo', desc = 'Descripción breve del proyecto', img, tags = [], demoUrl = '', repoUrl = '' }) => (
     <article className="project-card">
         <div className="project-media">
             <img src={img} alt={title} />
@@ -36,6 +42,8 @@ const ProjectCard = ({ title = 'Proyecto ejemplo', desc = 'Descripción breve de
 const Portafolio = () => {
     const [projects, setProjects] = useState([])
     const [loading, setLoading] = useState(true)
+    const [skills, setSkills] = useState([])
+    const [experience, setExperience] = useState([])
 
     useEffect(() => {
         let unsub = null
@@ -57,15 +65,48 @@ const Portafolio = () => {
             setLoading(false)
         }
 
+
         return () => {
             if (typeof unsub === 'function') unsub()
         }
     }, [])
 
+    // Skills subscription (simple)
+    useEffect(() => {
+        let unsub = null
+        getSkillsOnce()
+            .then(list => { if (list && list.length) setSkills(list) })
+            .catch(() => { })
+
+        try {
+            unsub = subscribeSkills(list => { setSkills(list) })
+        } catch (err) {
+            // ignore
+        }
+
+        return () => { if (typeof unsub === 'function') unsub() }
+    }, [])
+
+    // Experience subscription (simple)
+    useEffect(() => {
+        let unsub = null
+        getExperienceOnce()
+            .then(list => { if (list && list.length) setExperience(list) })
+            .catch(() => { })
+
+        try {
+            unsub = subscribeExperience(list => { setExperience(list) })
+        } catch (err) {
+            // ignore
+        }
+
+        return () => { if (typeof unsub === 'function') unsub() }
+    }, [])
+
     return (
         <section className="portfolio-page">
             <header className="portfolio-header">
-                <h2>Portafolio</h2>
+                <h2>Projectos</h2>
                 <p className="lead">Proyectos y tecnologías — clic en "Ver" para demo o en "Código" para repositorio</p>
             </header>
 
@@ -87,6 +128,40 @@ const Portafolio = () => {
                         />
                     ))
                 )}
+            </div>
+
+            <div className="portfolio-extra">
+                <div className="skills-column">
+                    <h2>Tecnologias</h2>
+                    {skills.length === 0 ? (
+                        <div className="portfolio-empty">No hay habilidades registradas.</div>
+                    ) : (
+                        <div className="skills-list">
+                            {skills.map(s => (
+                                <div className="skill-chip" key={s.id}>{s.name}</div>
+                            ))}
+                        </div>
+                    )}
+                </div>
+
+                <div className="xp-column">
+                    <h2>Experiencia</h2>
+                    {experience.length === 0 ? (
+                        <div className="portfolio-empty">No hay experiencia registrada.</div>
+                    ) : (
+                        <div className="xp-list">
+                            {experience.map(x => (
+                                <div className="xp-item" key={x.id}>
+                                    <strong>{x.role || 'Rol'}</strong>
+                                    <div className="xp-company">{x.company || ''} — <span className="xp-dates">{x.startDate || ''} • {x.endDate || 'Present'}</span></div>
+                                    {x.responsibilities && x.responsibilities.length > 0 && (
+                                        <p className="xp-desc">{x.responsibilities[0]}</p>
+                                    )}
+                                </div>
+                            ))}
+                        </div>
+                    )}
+                </div>
             </div>
         </section>
     )

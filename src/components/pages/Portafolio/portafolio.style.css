@@ -24,15 +24,31 @@
 }
 .project-media img{ width:100%; height:160px; object-fit:cover; display:block }
 .project-body{ padding: 12px }
-.project-title{ margin:0 0 6px; font-size:18px }
+.project-title{ margin:0 0 6px; font-size:18px; letter-spacing: 1px;}
 .project-desc{ margin:0 0 8px; color:#cfcfcf; font-size:14px }
-.project-tags{ display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px }
+.project-tags{ display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px; letter-spacing: 1px }
 .project-tags span{ background: rgba(255,255,255,0.03); padding:4px 8px; border-radius:6px; font-size:12px; color:#ddd }
 .project-actions{ display:flex; gap:8px }
-.btn{ background: linear-gradient(90deg,#ff6b6b,#ff4d4d); color:#fff; border:none; padding:8px 12px; border-radius:8px; cursor:pointer }
+.btn{ background: linear-gradient(90deg,#ff6b6b,#ff4d4d); color:#fff; border:none; padding:8px 12px; border-radius:8px; cursor:pointer; letter-spacing: 1px }
 .btn-outline{ background:transparent; border:1px solid rgba(255,255,255,0.06); color:#fff }
 
 @media (max-width:720px){
   .project-media img{ height:140px }
   .portfolio-header{ text-align:center }
 }
+
+/* Simple styles for Skills and Experience sections inside Portafolio */
+.portfolio-extra{ max-width:1100px; margin:20px auto; display:grid; grid-template-columns:1fr 1fr; gap:16px; padding: 0 12px }
+.skills-column h3, .xp-column h3{ margin:0 0 8px }
+.skills-list{ display:flex; gap:8px; flex-wrap:wrap }
+.skill-chip{ background: rgba(255,255,255,0.03); padding:6px 10px; border-radius:999px; color:#fff; font-size:13px }
+.xp-list{ display:flex; flex-direction:column; gap:10px }
+.xp-item{ background: rgba(255,255,255,0.02); padding:10px; border-radius:8px }
+.xp-company{ font-size:13px; color:#cfcfcf; margin-top:4px }
+.xp-desc{ margin-top:8px; color:#ddd; font-size:14px }
+
+@media (max-width:720px){
+  .portfolio-extra{ grid-template-columns:1fr; padding: 0 12px }
+}
+
+

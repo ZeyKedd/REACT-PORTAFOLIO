@@ -20,6 +20,21 @@
   padding-bottom: 12px;
 }
 
+/* Fuente Arvo para textos largos (descripciones, leads, subtítulos) */
+@import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* Aplicar Arvo a elementos de texto más extensos */
+.project-desc,
+.lead,
+.parrafo_Abajo,
+.subtituo,
+.subtitulo,
+.portfolio-page p,
+.contacto p
+{
+  font-family: 'Arvo', serif;
+}
+
 /* Main content se expande; sidebar tiene ancho fijo */
 .main-area > .main, .main-area > main {
   flex: 1;

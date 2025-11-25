@@ -14,29 +14,80 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig)
 const db = getDatabase(app)
 
-// LEE SIEMPRE DESDE LA RAÍZ
+// LEE DESDE /projects
 export function subscribeProjects(callback) {
-  const projectsRef = ref(db)
+  const projectsRef = ref(db, 'projects')
 
   return onValue(projectsRef, snapshot => {
     const value = snapshot.val()
-    const list = Object.keys(value).map(key => ({
-      id: key,
-      ...value[key]
-    }))
+    if (!value) return callback([])
+    const list = Object.keys(value).map(key => ({ id: key, ...value[key] }))
     return callback(list)
   })
 }
 
 export async function getProjectsOnce() {
-  const snap = await get(ref(db))
+  const snap = await get(ref(db, 'projects'))
   const value = snap.val()
   if (!value) return []
 
-  return Object.keys(value).map(key => ({
-    id: key,
-    ...value[key]
-  }))
+  return Object.keys(value).map(key => ({ id: key, ...value[key] }))
+}
+
+/**
+ * Subscribe to `skills` node in the Realtime Database.
+ * Callback receives an array of skill objects: [{id, name, category, proficiency, ...}, ...]
+ * Returns the unsubscribe function from `onValue`.
+ */
+export function subscribeSkills(callback) {
+  const skillsRef = ref(db, 'skills')
+
+  return onValue(skillsRef, snapshot => {
+    const value = snapshot.val()
+    if (!value) return callback([])
+    const list = Object.keys(value).map(key => ({ id: key, ...value[key] }))
+    return callback(list)
+  })
+}
+
+export async function getSkillsOnce() {
+  // try lowercase first
+  let snap = await get(ref(db, 'skills'))
+  let value = snap.val()
+  if (!value) {
+    // fallback to capitalized node name if user used that
+    snap = await get(ref(db, 'Skills'))
+    value = snap.val()
+  }
+  if (!value) return []
+
+  return Object.keys(value).map(key => ({ id: key, ...value[key] }))
+}
+
+/**
+ * Subscribe to `experience` node.
+ */
+export function subscribeExperience(callback) {
+  const xpRef = ref(db, 'experience')
+
+  return onValue(xpRef, snapshot => {
+    const value = snapshot.val()
+    if (!value) return callback([])
+    const list = Object.keys(value).map(key => ({ id: key, ...value[key] }))
+    return callback(list)
+  })
+}
+
+export async function getExperienceOnce() {
+  let snap = await get(ref(db, 'experience'))
+  let value = snap.val()
+  if (!value) {
+    snap = await get(ref(db, 'Experience'))
+    value = snap.val()
+  }
+  if (!value) return []
+
+  return Object.keys(value).map(key => ({ id: key, ...value[key] }))
 }
 
 export { db }
