@@ -9,14 +9,14 @@ import {
     getExperienceOnce
 } from '../../../services/firebase'
 
-const ProjectCard = ({ title = 'Proyecto ejemplo', desc = 'Descripción breve del proyecto', img, tags = [], demoUrl = '', repoUrl = '' }) => (
+const ProjectCard = ({ title , description, img, tags = [], demoUrl = '', repoUrl = '' }) => (
     <article className="project-card">
         <div className="project-media">
             <img src={img} alt={title} />
         </div>
         <div className="project-body">
             <h3 className="project-title">{title}</h3>
-            <p className="project-desc">{desc}</p>
+            <p className="project-desc">{description}</p>
             <div className="project-tags">
                 {(tags || []).map((t, idx) => (
                     <span key={idx}>{t}</span>
@@ -125,7 +125,7 @@ const Portafolio = () => {
                         <ProjectCard
                             key={p.id || i}
                             title={p.title}
-                            desc={p.desc}
+                            description={p.description}
                             img={p.img}
                             tags={p.tags}
                             demoUrl={p.demoUrl}

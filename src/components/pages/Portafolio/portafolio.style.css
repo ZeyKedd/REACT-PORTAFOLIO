@@ -16,6 +16,8 @@
 
 .project-card{
   background: rgba(255,255,255,0.02);
+  border: 2px solid transparent;
+  border-image: linear-gradient(to top, #ff4d4d, #000) 1;
   border-radius: 12px;
   overflow: hidden;
   display: flex;
