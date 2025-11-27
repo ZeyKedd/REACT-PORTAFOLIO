@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 import Inicio  from './pages/Inicio/inicio'
 import Contacto  from './pages/Contacto/contacto'
 import Portafolio from './pages/Portafolio/portafolio'
-import QuienSoy from './pages/QuienSoy/quienSoy'
+import SobreMi  from './pages/SobreMi/SobreMi'
 
 export const main = () => {
     return (
@@ -20,8 +20,8 @@ export const main = () => {
             <Route path="/portafolio"
                 element={<Portafolio />}
                 />
-                <Route path="/quiensoy"
-                element={<QuienSoy />}
+                <Route path="/SobreMi"
+                element={<SobreMi />}
                 />
         </Routes>
     </main>

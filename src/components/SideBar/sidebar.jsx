@@ -9,7 +9,7 @@ const Sidebar = () => {
                 <NavLink to="/" end className={({isActive}) => isActive ? 'nav-item active' : 'nav-item'}>Inicio</NavLink>
                 <NavLink to="/portafolio" className={({isActive}) => isActive ? 'nav-item active' : 'nav-item'}>Portafolio</NavLink>
                 <NavLink to="/contacto" className={({isActive}) => isActive ? 'nav-item active' : 'nav-item'}>Contacto</NavLink>
-                <NavLink to="/quiensoy" className={({isActive}) => isActive ? 'nav-item active' : 'nav-item'}>Quien Soy</NavLink>
+                <NavLink to="/sobreMi" className={({isActive}) => isActive ? 'nav-item active' : 'nav-item'}>Sobre Mi</NavLink>
             </nav>
         </aside>
     )
