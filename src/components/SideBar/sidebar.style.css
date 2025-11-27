@@ -1,9 +1,8 @@
-
 .sidebar{
     width: 120px;
     min-height: 80vh;
     letter-spacing: 2px;
-    background: transparent; /* quitar fondo */
+    background: transparent;
     color: #e6e6e6;
     display: flex;
     flex-direction: column;
@@ -44,8 +43,62 @@
     color: #fff;
 }
 
+/* --------------------------------------------------------- */
+/* 📱 Responsive */
+/* --------------------------------------------------------- */
+
+@media (max-width: 900px){
+    .sidebar{
+        width: 100px;
+        padding: 10px 6px;
+    }
+    .nav-item{
+        padding: 8px 10px;
+        font-size: 0.95rem;
+    }
+}
+
 @media (max-width: 720px){
-    .sidebar{ width:100%; min-height:auto; flex-direction:row; padding:8px; gap:8px }
-    .sidebar-nav{ flex-direction:row; gap:6px; margin-top:0; width:auto }
-    .nav-item{ padding:8px 10px; font-size:0.95rem }
+    .sidebar{
+        width: 100%;
+        min-height: auto;
+        flex-direction: row;
+        justify-content: center;
+        padding: 8px;
+        gap: 10px;
+    }
+
+    .sidebar-nav{
+        flex-direction: row;
+        gap: 8px;
+        margin-top: 0;
+        width: auto;
+    }
+
+    .nav-item{
+        padding: 8px 12px;
+        width: auto;         /* ya no ocupa todo el ancho */
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+    }
+}
+
+/* Celulares pequeños */
+@media (max-width: 480px){
+    .nav-item{
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Celulares muy pequeños (menos de 360px) */
+@media (max-width: 360px){
+    .sidebar{
+        gap: 6px;
+    }
+    .nav-item{
+        padding: 5px 8px;
+        font-size: 0.75rem;
+        border-radius: 6px;
+    }
 }

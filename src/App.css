@@ -12,12 +12,10 @@
 .main-area{
   display: flex;
   flex: 1;
-  gap: 16px;
   min-height: 0;
   height: 100%;
   box-sizing: border-box;
   overflow: auto; /* permite que el contenido se desplace sin mover el footer */
-  padding-bottom: 12px;
 }
 
 /* Fuente Arvo para textos largos (descripciones, leads, subtítulos) */
@@ -31,7 +29,8 @@
 .subtitulo,
 .portfolio-page p,
 .contacto p,
-.rol-tittle
+.rol-tittle,
+.sobre-mi-text
 {
   font-family: 'Arvo', serif;
 }

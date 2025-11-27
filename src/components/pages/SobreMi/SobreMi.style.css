@@ -1,0 +1,111 @@
+.sobre-mi-container {
+    width: 45rem;
+    max-width: 90%;
+    margin-inline: auto;
+    margin-top: 3rem;
+    background: #111;
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.1);
+}
+
+/* Título */
+.sobre-mi-title {
+    color: #ff2a2a;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 2rem;
+    letter-spacing: 2px;
+}
+
+/* Texto */
+.sobre-mi-text {
+    color: #ddd;
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+}
+
+/* Botones */
+.sobre-mi-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+    letter-spacing: 2px;
+}
+
+.sobre-mi-btn {
+    padding: 0.7rem 1.4rem;
+    background: #ff2a2a;
+    color: black;
+    border-radius: 10px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+
+.sobre-mi-btn:hover {
+    background: #ff4a4a;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid #ff2a2a;
+    color: #ff2a2a;
+}
+
+.btn-outline:hover {
+    background: #ff2a2a;
+    color: black;
+}
+
+
+/* --------------------------------------------------------- */
+/* 📱 RESPONSIVE */
+/* --------------------------------------------------------- */
+
+/* Tablets y pantallas medianas */
+@media (max-width: 900px) {
+    .sobre-mi-container {
+        width: 35rem;
+        padding: 1.8rem;
+    }
+    .sobre-mi-title {
+        font-size: 1.8rem;
+    }
+}
+
+/* Celulares grandes */
+@media (max-width: 600px) {
+    .sobre-mi-container {
+        width: 100%;
+        padding: 1.5rem;
+    }
+    .sobre-mi-title {
+        font-size: 1.6rem;
+        letter-spacing: 1px;
+    }
+    .sobre-mi-text {
+        font-size: 0.95rem;
+    }
+    .sobre-mi-links {
+        flex-direction: column;
+        gap: 0.7rem;
+    }
+    .sobre-mi-btn {
+        width: 100%;
+        text-align: center;
+        padding: 0.9rem;
+    }
+}
+
+/* Celulares muy pequeños (menos de 400px) */
+@media (max-width: 400px) {
+    .sobre-mi-title {
+        font-size: 1.4rem;
+    }
+    .sobre-mi-text {
+        font-size: 0.9rem;
+    }
+}
