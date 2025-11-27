@@ -33,7 +33,7 @@
 .project-actions{ display:flex; gap:8px }
 .btn{ background: linear-gradient(90deg,#ff6b6b,#ff4d4d); color:#fff; border:none; padding:8px 12px; border-radius:8px; cursor:pointer; letter-spacing: 1px }
 .btn-outline{ background:transparent; border:1px solid rgba(255,255,255,0.06); color:#fff }
-
+.btn-disable {  background: linear-gradient(90deg, #777, #555);  color: #ccc;  border: none;  padding: 8px 12px;  border-radius: 8px;  cursor: not-allowed;  opacity: 0.6;  letter-spacing: 1px;}
 @media (max-width:720px){
   .project-media img{ height:140px }
   .portfolio-header{ text-align:center }

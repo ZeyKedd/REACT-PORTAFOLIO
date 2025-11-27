@@ -9,7 +9,7 @@ import {
     getExperienceOnce
 } from '../../../services/firebase'
 
-const ProjectCard = ({ title , description, img, tags = [], demoUrl = '', repoUrl = '' }) => (
+const ProjectCard = ({ title , description, img, tags = [], demoUrl, repoUrl }) => (
     <article className="project-card">
         <div className="project-media">
             <img src={img} alt={title} />
@@ -26,13 +26,13 @@ const ProjectCard = ({ title , description, img, tags = [], demoUrl = '', repoUr
                 {demoUrl ? (
                     <a className="btn" href={demoUrl} target="_blank" rel="noopener noreferrer">Ver</a>
                 ) : (
-                    <button className="btn" disabled>Ver</button>
+                    <button className="btn-disable" disabled>Ver</button>
                 )}
 
                 {repoUrl ? (
                     <a className="btn btn-outline" href={repoUrl} target="_blank" rel="noopener noreferrer">Código</a>
                 ) : (
-                    <button className="btn btn-outline" disabled>Código</button>
+                    <button className="btn-disable" disabled>Código</button>
                 )}
             </div>
         </div>
