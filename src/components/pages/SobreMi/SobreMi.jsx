@@ -19,7 +19,7 @@ const SobreMi = () => {
             </p>
 
             <p className="sobre-mi-text">
-                En este sitio muestro parte de lo que he ido construyendo. Si te interesa hablar, colaborar o necesitas ayuda con algo, puedes escribirme cuando quieras.
+                En este sitio muestro parte de lo que he ido construyendo. Si te interesa hablar, colaborar o necesitas ayuda con algo, puedes escribirme cuando quieras...
             </p>
 
             <div className="sobre-mi-links">
